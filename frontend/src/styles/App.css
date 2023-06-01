@@ -1,0 +1,278 @@
+:root {
+  --bg-color-form: #03f40f;
+  --color-red: #FF0000;
+}
+
+.App {
+  background: black;
+  min-height: 100vh;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(24, 20, 20, 0.987);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 5px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box:first-child {
+  margin-bottom: 30px;
+}
+
+@keyframes ledEffect {
+  0% {
+    color: var(--color-red);
+    box-shadow: 0 0 5px var(--color-red);
+  }
+
+  50% {
+    color: #000;
+    box-shadow: none;
+  }
+
+  100% {
+    color: var(--color-red);
+    box-shadow: 0 0 5px var(--color-red);
+  }
+}
+
+.login-box .user-box span {
+  display: none;
+  text-transform: uppercase;
+  animation: ledEffect 1s infinite;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+  top: -20px;
+  left: 0;
+  color: #bdb8b8;
+  font-size: 12px;
+}
+
+.login-box form #btn-submit {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box #btn-submit:hover {
+  background: var(--bg-color-form);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--bg-color-form),
+    0 0 25px var(--bg-color-form),
+    0 0 50px var(--bg-color-form),
+    0 0 100px var(--bg-color-form);
+}
+
+.login-box #btn-submit span {
+  position: absolute;
+  display: block;
+}
+
+/* SPINNER */
+.spinner svg {
+  display: none;
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+}
+
+.spinner circle {
+  fill: none;
+  stroke: hsl(214, 97%, 59%);
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+/* PRODUCTOS */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, var(--bg-color-form), #10dd23 50%, #7ecfb9);
+}
+
+.card .card-content {
+  background: rgb(5, 6, 45);
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+}
+
+
+.card .contenedor-imagen {
+  width: 238px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card .producto-imagen {
+  width: 250px;
+}
+
+.card .descripcion-precio {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 5px;
+}
+
+.descripcion-precio .moneda {
+  font-size: 12px;
+  color: var(--bg-color-form);
+}
+
+.card .descripcion-precio .valor {
+  font-size: 15px;
+  color: var(--bg-color-form);
+}
+
+/* BUTTON UPDATE */
+.button-update button {
+  position: absolute;
+  border: 1px solid #fff;
+  bottom: 5px;
+  right: 5px;
+  display: inline-block;
+  background: #000;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.button-update button:hover {
+  background: var(--bg-color-form);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--bg-color-form),
+    0 0 25px var(--bg-color-form),
+    0 0 50px var(--bg-color-form),
+    0 0 100px var(--bg-color-form);
+}
+
+/* BUTTON ADD */
+.button-add button {
+  border: 1px solid #fff;
+  display: inline-block;
+  background: #000;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.button-add button:hover {
+  background: var(--bg-color-form);
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--bg-color-form),
+    0 0 25px var(--bg-color-form),
+    0 0 50px var(--bg-color-form),
+    0 0 100px var(--bg-color-form);
+}
+
+@keyframes ledEffectGreen {
+  0% {
+    color: var(--bg-color-form);
+    box-shadow: 0 0 5px var(--bg-color-form);
+  }
+
+  50% {
+    color: #000;
+    box-shadow: none;
+  }
+
+  100% {
+    color: var(--bg-color-form);
+    box-shadow: 0 0 5px var(--bg-color-form);
+  }
+}
+
+.text-neon {
+  text-transform: uppercase;
+  animation: ledEffectGreen 1s infinite;
+  text-align: center;
+  font-size: 50px;
+}
